@@ -14,30 +14,23 @@ https://www.coolapk.com/feed/38579891?shareKey=NGI3ZGZlZTM4MDBjNjMwMzdlM2M~&shar
 
 模板内容如下：
 
-{{date.DATA}} 
+今天是：{{date.DATA}}
 
-地区：{{region.DATA}} 
+	地区：{{region.DATA}}
 
-天气：{{weather.DATA}} 
+	天气：{{weather.DATA}}
 
-气温：{{temp.DATA}} 
+	气温：{{temp.DATA}}
 
-风向：{{wind_dir.DATA}} 
+	风向：{{wind_dir.DATA}}
 
-今天是我们恋爱的第{{love_day.DATA}}天 
+	今天是我们恋爱的第{{love_day.DATA}}天
 
-{{birthday1.DATA}} 
-{{birthday2.DATA}}
+	{{birthday1.DATA}} 
+	{{birthday2.DATA}}
 
-
-{{note_en.DATA}} 
-{{note_ch.DATA}}
---------课表-------- 
- 8:30-10:05 {{firstClass.DATA}} 
- 10:25-12:00 {{secondClass.DATA}} 
- 2:30-4:05 {{thirdClass.DATA}} 
- 4:15-5:50 {{fourthClass.DATA}} 
- 6:20-9:40 {{fifthClass.DATA}}
+	{{note_en.DATA}} 
+	{{note_ch.DATA}}
 ————————————————
 版权声明：本文为CSDN博主「申也.」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/qq_51490212/article/details/126594343
