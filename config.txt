@@ -8,7 +8,7 @@
   "birthday1": {"name": "思思大美女", "birthday": "2003-10-28"},
   "birthday2": {"name": "小笛总", "birthday": "2004-6-17"},
   "love_date": "2022-6-9",
-  "meet_date": "2023-07-10",
+  "meet_date": "2023-7-10",
   "note_ch": "",
   "note_en": "",
   "theClass": [
