@@ -1,14 +1,31 @@
 {
-"app_id": "wxc208f62344e41fe1",
-"app_secret": "bbe445874915f362e46ac92f6dd6e5f0",
-"template_id": "3XnLWLkz6yaiOwzU3hiZpKLtoFqijUWj5Vu3NXLewiw",
-"user": ["otr5G6GU5UP23fvm8xbTuF5FKPVU", "otr5G6ExGWAAKT5a9t8HDjq6ddbc"],
-"weather_key": "c25b2423bd3e4a05bf0293144b7f9daf",
-"region": "桂林市",
-"birthday1": {"name": "思思大美女", "birthday": "2003-10-28"},
-"birthday2": {"name": "小笛总", "birthday": "2004-6-17"},
-"love_date": "2022-6-9",
-"note_ch": "",
-"note_en": ""
-
+  "app_id": "wxc208f62344e41fe1",
+  "app_secret": "bbe445874915f362e46ac92f6dd6e5f0",
+  "template_id": "j-kpctK1IzJt4UdgSgkfkBe-G3knQ5tZtI_TdqR14Us",
+  "user": ["otr5G6GU5UP23fvm8xbTuF5FKPVU", "otr5G6ExGWAAKT5a9t8HDjq6ddbc"],
+  "weather_key": "c25b2423bd3e4a05bf0293144b7f9daf",
+  "region": "桂林市",
+  "birthday1": {"name": "思思大美女", "birthday": "2003-10-28"},
+  "birthday2": {"name": "小笛总", "birthday": "2004-6-17"},
+  "love_date": "2022-6-9",
+  "note_ch": "",
+  "note_en": "",
+  "theClass": [
+    ["大学英语", "高等数学", "大学物理", "测量学", "CAD与大比例尺地形图绘制"],
+    ["", "", "", "", "12"],
+    ["", "", "", "", "13"],
+    ["", "", "", "", "14"],
+    ["", "", "", "", "15"],
+    ["", "", "", "", "16"],
+    ["", "", "", "", "呵"]
+  ],
+  "otherClass": [
+    ["", "", "", "", "1"],
+    ["", "", "", "", "2"],
+    ["", "", "", "", "3"],
+    ["", "", "", "", "4"],
+    ["", "", "", "", "5"],
+    ["", "", "", "", "6"],
+    ["", "", "", "", "7"]
+  ]
 }
