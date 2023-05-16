@@ -94,7 +94,7 @@ elif today == year_date:
 else:
 	birth_date = year_date
 	birth_day = str(birth_date.sub(today)).split(" ")[0]
-return birth_day
+print(birth_day)
 
 def get_ciba():
     url = "http://open.iciba.com/dsapi/"
