@@ -127,7 +127,7 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     meet_year = int(config["meet_date"].split("-")[0])
     meet_month = int(config["meet_date"].split("-")[1])
     meet_day = int(config["meet_date"].split("-")[2])
-    meet_date = date(meet_year, meet_month, meet_day)
+    days_until_meet = date(meet_year, meet_month, meet_day)
     # 获取见面日期差
     meet_days = str(meet_date.__sub__(today)).split(" ")[0]
 
