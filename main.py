@@ -117,7 +117,8 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
-    theClass = theClass[today.weekday()]  # 这里存在未定义的变量，需要确定 theClass 的来源
+    # 这里存在未定义的变量，需要确定 theClass 的来源
+    theClass = theClass[today.weekday()]
 
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
@@ -134,118 +135,116 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
         if k.startswith("birth"):
             birthdays[k] = v
     data = {
-		"touser": to_user,
-		"template_id": config["template_id"],
-		"url": "http://weixin.qq.com/download",
-		"topcolor": "#FF0000",
-		"data": {
-			"date": {
-				"value": "{} {}".format(today, week),
-				"color": get_color()
-			},
-			"region": {
-			"value": region_name,
-			"color": get_color()
-			},
-			"weather": {
-			"value":weather,
-			"color": get_color()
-			},
-			"temp": {
-			"value": temp,
-			"color": get_color()
-			},
-			"wind_dir": {
-			"value": wind_dir,
-			"color": get_color()
-			},
-			"love_day": {
-			"value": love_days,
-			"color": get_color()
-			},
-			"note_en": {
-			"value": note_en,
-			"color": get_color()
-			},
-			"note_ch": {
-			"value": note_ch,
-			"color": get_color()
-			},
-			"firstClass": {
-			"value": theClass[0],
-			"color": get_color()
-			},
-			"secondClass": {
-			"value": theClass[1],
-			"color": get_color()
-			},
-			"thirdClass": {
-			"value": theClass[2],
-			"color": get_color()
-			},
-			"fourthClass": {
-			"value": theClass[3],
-			"color": get_color()
-			},
-			"fifthClass": {
-			"value": theClass[4],
-			"color": get_color()
-			}
-		}
-	}
+        "touser": to_user,
+        "template_id": config["template_id"],
+        "url": "http://weixin.qq.com/download",
+        "topcolor": "#FF0000",
+        "data": {
+            "date": {
+                "value": "{} {}".format(today, week),
+                "color": get_color()
+            },
+            "region": {
+                "value": region_name,
+                "color": get_color()
+            },
+            "weather": {
+                "value": weather,
+                "color": get_color()
+            },
+            "temp": {
+                "value": temp,
+                "color": get_color()
+            },
+            "wind_dir": {
+                "value": wind_dir,
+                "color": get_color()
+            },
+            "love_day": {
+                "value": love_days,
+                "color": get_color()
+            },
+            "note_en": {
+                "value": note_en,
+                "color": get_color()
+            },
+            "note_ch": {
+                "value": note_ch,
+                "color": get_color()
+            },
+            "firstClass": {
+                "value": theClass[0],
+                "color": get_color()
+            },
+            "secondClass": {
+                "value": theClass[1],
+                "color": get_color()
+            },
+            "thirdClass": {
+                "value": theClass[2],
+                "color": get_color()
+            },
+            "fourthClass": {
+                "value": theClass[3],
+                "color": get_color()
+            },
+            "fifthClass": {
+                "value": theClass[4],
+                "color": get_color()
+            }
+        }
+    }
     for key, value in birthdays.items():
-    # 获取距离下次生日的时间
-    birth_day = get_birthday(value["birthday"], year, today)
-    if birth_day == 0:
-        birthday_data = "今天{}生日哦，祝{}生日快乐！".format(value["name"], value["name"])
-    else:
-        birthday_data = "距离{}的生日还有{}天".format(value["name"], birth_day)
-	# 将生日数据插入data
-	data["data"][key] = {"value": birthday_data, "color": get_color()}
-	headers = {
-		'Content-Type': 'application/json',
-		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-			'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
-	}
-	response = post(url, headers=headers, json=data).json()
-	if response["errcode"] == 40037:
-		print("推送消息失败，请检查模板id是否正确")
-	elif response["errcode"] == 40036:
-		print("推送消息失败，请检查模板id是否为空")
-	elif response["errcode"] == 40003:
-		print("推送消息失败，请检查微信号是否正确")
-	elif response["errcode"] == 0:
-		print("推送消息成功")
-	else:
-		print(response)
+        # 获取距离下次生日的时间
+        birth_day = get_birthday(value["birthday"], year, today)
+        if birth_day == 0:
+            birthday_data = "今天{}生日哦，祝{}生日快乐！".format(value["name"], value["name"])
+        else:
+            birthday_data = "距离{}    # 将生日数据插入data
+    data["data"][key] = {"value": birthday_data, "color": get_color()}
 
-if name == "main":
+# 发送消息
+headers = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+}
+
+for user in users:
+    send_message(user, accessToken, region, weather, temp, wind_dir, note_ch, note_en)
+if __name__ == "__main__":
     try:
-       with open("config.txt", encoding="utf-8") as f:
-       config = eval(f.read())
-            except FileNotFoundError:
-               print("推送消息失败，请检查config.txt文件是否与程序位于同一路径")
-               os.system("pause")
-               sys.exit(1)
-       except SyntaxError:
-           print("推送消息失败，请检查配置文件格式是否正确")
-           os.system("pause")
-           sys.exit(1)
-        # 获取accessToken
-        accessToken = get_access_token()
-        # 接收的用户
-        users = config["user"]
-        # 传入地区获取天气信息
-        region = config["region"]
-        weather, temp, wind_dir = get_weather(region)
-        note_ch = config["note_ch"]
-        note_en = config["note_en"]
-        if note_ch == "" and
-        note_en == "":
+        with open("config.txt", encoding="utf-8") as f:
+            config = eval(f.read())
+    except FileNotFoundError:
+        print("推送消息失败，请检查config.txt文件是否与程序位于同一路径")
+        os.system("pause")
+        sys.exit(1)
+    except SyntaxError:
+        print("推送消息失败，请检查配置文件格式是否正确")
+        os.system("pause")
+        sys.exit(1)
+
+    # 获取accessToken
+    accessToken = get_access_token()
+
+    # 接收的用户
+    users = config["user"]
+
+    # 传入地区获取天气信息
+    region = config["region"]
+    weather, temp, wind_dir = get_weather(region)
+
+    note_ch = config["note_ch"]
+    note_en = config["note_en"]
+
+    if note_ch == "" and note_en == "":
         note_ch, note_en = get_ciba()
-        # 发送消息
-        for user in users:
-                send_message(user, accessToken, region, weather, temp, wind_dir, note_ch, note_en)
+
+    # 发送消息
+    for user in users:
+        send_message(user, accessToken, region, weather, temp, wind_dir, note_ch, note_en)
+
+
 
 
 
