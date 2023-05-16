@@ -123,7 +123,14 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
     day = localtime().tm_mday
     today = datetime.date(datetime(year=year, month=month, day=day))
     week = week_list[today.isoweekday() % 7]
-   
+    # 获取见面日期的年、月、日
+    meet_year = int(config["meet_date"].split("-")[0])
+    meet_month = int(config["meet_date"].split("-")[1])
+    meet_day = int(config["meet_date"].split("-")[2])
+    meet_date = date(meet_year, meet_month, meet_day)
+    # 获取见面日期差
+    meet_days = str(meet_date.__sub__(today)).split(" ")[0]
+
     # 获取在一起的日子的日期格式
     love_year = int(config["love_date"].split("-")[0])
     love_month = int(config["love_date"].split("-")[1])
@@ -173,6 +180,10 @@ def send_message(to_user, access_token, region_name, weather, temp, wind_dir, no
             "note_ch": {
                 "value": note_ch,
                 "color": get_color()
+            },
+            "meet_day": {
+            "value": meet_days,
+            "color": get_color()
             },
         }
     }
