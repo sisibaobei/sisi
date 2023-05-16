@@ -1,7 +1,7 @@
 {
   "app_id": "wxc208f62344e41fe1",
   "app_secret": "bbe445874915f362e46ac92f6dd6e5f0",
-  "template_id": "j-kpctK1IzJt4UdgSgkfkBe-G3knQ5tZtI_TdqR14Us",
+  "template_id": "	vz9A86quKCT40Fuze7alVD4CSrElPBucz75QvV_Y5M8",
   "user": ["otr5G6GU5UP23fvm8xbTuF5FKPVU", "otr5G6ExGWAAKT5a9t8HDjq6ddbc"],
   "weather_key": "c25b2423bd3e4a05bf0293144b7f9daf",
   "region": "桂林市",
